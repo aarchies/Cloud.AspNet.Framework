@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Grpc\Protos\*.proto" GrpcServices="Server" />
+	</ItemGroup>
+
+ 
+	<ItemGroup>
+		<PackageReference Include="Glasssix.BuildingBlocks.Grpc.Server" Version="1.0.1" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.47.0" />
+		<ProjectReference Include="..\Demo.Application.Contracts\Demo.Application.Contracts.csproj" />
+		<ProjectReference Include="..\Demo.Domain\Demo.Domain.csproj" />
+	</ItemGroup>
+
+
+
+</Project>

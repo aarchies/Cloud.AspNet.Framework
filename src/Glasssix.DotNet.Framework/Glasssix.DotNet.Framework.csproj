@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>.net6;.net7</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<Version>2.2.6.3</Version>
+		<Description>.net项目基础框架</Description>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|.net6|AnyCPU'">
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|.net6|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|.net7|AnyCPU'">
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|.net7|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|.net6|AnyCPU'">
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|.net6|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|.net7|AnyCPU'">
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|.net7|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+		<!--<PackageReference Include="Autofac" Version="7.0.1" />-->
+		<PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="6.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.MySql" Version="6.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.Redis" Version="6.0.4" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Caching.Distributed.StackExchangeRedis" Version="1.0.0" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Caching.MultilevelCache" Version="1.0.0" />
+		<PackageReference Include="Glasssix.BuildingBlocks.EventCenter" Version="1.0.1" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Grpc.Server" Version="1.0.0" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Logging" Version="1.0.0-prv" />
+		<PackageReference Include="Glasssix.BuildingBlocks.MessageCenter" Version="1.0.10" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Scheduler" Version="1.0.0" />
+		<PackageReference Include="Glasssix.Contrib.Data.Orm" Version="1.0.1" />
+		<PackageReference Include="Glasssix.Contrib.Data.Storage" Version="1.0.0-prv" />
+		<PackageReference Include="Glasssix.Contrib.File.Storage" Version="1.0.0" />
+		<PackageReference Include="Glasssix.Contrib.ServiceDiscovery" Version="1.0.0-prv" />
+		<PackageReference Include="Glasssix.Contrib.Services" Version="1.0.0" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+		<PackageReference Include="Grpc.AspNetCore.Server" Version="2.37.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="MetaExpressions\" />
+		<Folder Include="Validations\" />
+	</ItemGroup>
+</Project>

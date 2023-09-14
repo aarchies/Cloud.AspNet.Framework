@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import public "google/protobuf/empty.proto";
+package Helper.Grpc.Core;
+
+message Result {
+  int32 code = 1;
+  string message=2;
+  bytes data=3;
+  bool success=4;
+}
+
+message PagerList{
+  int32 TotalCount=1;
+  int32 PageCount=2;
+  int32 Page=3;
+  int32 PageSize=4;
+  string Order=5;
+  bytes Data=6;
+}
+
+message Query{
+	string keyword=1;
+}
+
+
+message IdRequest{
+	string id=1;
+}

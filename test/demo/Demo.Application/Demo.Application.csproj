@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <NoWarn>1701;1702;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	  <NoWarn>1701;1702;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <NoWarn>1701;1702;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <NoWarn>1701;1702;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Grpc\Protos\*.proto" GrpcServices="Server" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="7.0.1" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Grpc.Server" Version="1.0.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.53.0" />
+		<ProjectReference Include="..\Demo.Application.Contracts\Demo.Application.Contracts.csproj" />
+		<ProjectReference Include="..\Demo.Domain\Demo.Domain.csproj" />
+	</ItemGroup>
+
+
+
+</Project>

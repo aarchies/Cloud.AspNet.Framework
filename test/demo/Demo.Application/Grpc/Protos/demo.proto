@@ -1,0 +1,12 @@
+syntax = "proto3";
+option csharp_namespace = "Rpc.DemoService";
+package Demo;
+import  "Grpc/Protos/core.proto";
+
+service RpcDemoService {
+  rpc GetList (Input) returns(Helper.Grpc.Core.Result);
+}
+
+message Input{
+	int32 id=1;
+}

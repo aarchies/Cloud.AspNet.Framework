@@ -1,0 +1,154 @@
+﻿using Glasssix.Contrib.Caching.ClientFactory.Distributed;
+using Glasssix.Contrib.Caching.Options;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
+
+namespace Glasssix.Contrib.Caching
+{
+    public abstract class DistributedCacheClientBase : CacheClientBase, IDistributedCacheClient
+    {
+        public abstract Task<bool> BlockingWork([NotNull] string resource, TimeSpan expiryTime, TimeSpan waitTime, Func<Task> work);
+
+        public abstract bool Exists(string key);
+
+        public abstract bool Exists<T>(string key, Action<CacheOptions>? action = null);
+
+        public abstract Task<bool> ExistsAsync(string key);
+
+        public abstract Task<bool> ExistsAsync<T>(string key, Action<CacheOptions>? action = null);
+
+        public abstract T? Get<T>(string key, Action<CacheOptions>? action = null);
+
+        public abstract Task<T?> GetAsync<T>(string key, Action<CacheOptions>? action = null);
+
+        public abstract IEnumerable<KeyValuePair<string, T?>> GetByKeyPattern<T>(string keyPattern, Action<CacheOptions>? action = null);
+
+        public abstract Task<IEnumerable<KeyValuePair<string, T?>>> GetByKeyPatternAsync<T>(string keyPattern,
+            Action<CacheOptions>? action = null);
+
+        public abstract IEnumerable<string> GetKeys(string keyPattern);
+
+        public abstract IEnumerable<string> GetKeys<T>(string keyPattern, Action<CacheOptions>? action = null);
+
+        public abstract Task<IEnumerable<string>> GetKeysAsync(string keyPattern);
+
+        public abstract Task<IEnumerable<string>> GetKeysAsync<T>(string keyPattern, Action<CacheOptions>? action = null);
+
+        public override IEnumerable<T?> GetList<T>(params string[] keys) where T : default
+            => GetList<T>(GetKeys(keys));
+
+        public abstract IEnumerable<T?> GetList<T>(IEnumerable<string> keys, Action<CacheOptions>? action = null);
+
+        public override Task<IEnumerable<T?>> GetListAsync<T>(params string[] keys) where T : default
+            => GetListAsync<T>(GetKeys(keys));
+
+        public abstract Task<IEnumerable<T?>> GetListAsync<T>(IEnumerable<string> keys, Action<CacheOptions>? action = null);
+
+        public abstract T? GetOrSet<T>(string key, Func<CacheEntry<T>> setter, Action<CacheOptions>? action = null);
+
+        public virtual Task<T?> GetOrSetAsync<T>(string key, Func<CacheEntry<T>> setter, Action<CacheOptions>? action = null)
+            => GetOrSetAsync(key, () => Task.FromResult(setter.Invoke()), action);
+
+        public abstract Task<T?> GetOrSetAsync<T>(string key, Func<Task<CacheEntry<T>>> setter, Action<CacheOptions>? action = null);
+
+        public abstract Task<long?> HashDecrementAsync(string key,
+            long value = 1L,
+            long defaultMinVal = 0L,
+            Action<CacheOptions>? action = null,
+            CacheEntryOptions? options = null);
+
+        public abstract Task<long> HashIncrementAsync(
+            string key,
+            long value = 1,
+            Action<CacheOptions>? action = null,
+            CacheEntryOptions? options = null);
+
+        public virtual bool KeyExpire(string key, TimeSpan? absoluteExpirationRelativeToNow)
+            => KeyExpire(key, new CacheEntryOptions(absoluteExpirationRelativeToNow));
+
+        public virtual bool KeyExpire<T>(string key, TimeSpan? absoluteExpirationRelativeToNow, Action<CacheOptions>? action = null)
+            => KeyExpire<T>(key, new CacheEntryOptions(absoluteExpirationRelativeToNow), action);
+
+        public virtual bool KeyExpire(string key, DateTimeOffset absoluteExpiration)
+            => KeyExpire(key, new CacheEntryOptions(absoluteExpiration));
+
+        public virtual bool KeyExpire<T>(string key, DateTimeOffset absoluteExpiration, Action<CacheOptions>? action = null)
+            => KeyExpire<T>(key, new CacheEntryOptions(absoluteExpiration), action);
+
+        public abstract bool KeyExpire(string key, CacheEntryOptions? options = null);
+
+        public abstract bool KeyExpire<T>(string key, CacheEntryOptions? options = null, Action<CacheOptions>? action = null);
+
+        public abstract long KeyExpire(IEnumerable<string> keys, CacheEntryOptions? options = null);
+
+        public abstract long KeyExpire<T>(IEnumerable<string> keys, CacheEntryOptions? options = null, Action<CacheOptions>? action = null);
+
+        public virtual Task<bool> KeyExpireAsync(string key, DateTimeOffset absoluteExpiration)
+            => KeyExpireAsync(key, new CacheEntryOptions(absoluteExpiration));
+
+        public virtual Task<bool> KeyExpireAsync<T>(string key, DateTimeOffset absoluteExpiration, Action<CacheOptions>? action = null)
+            => KeyExpireAsync<T>(key, new CacheEntryOptions(absoluteExpiration), action);
+
+        public virtual Task<bool> KeyExpireAsync(string key, TimeSpan? absoluteExpirationRelativeToNow)
+            => KeyExpireAsync(key, new CacheEntryOptions(absoluteExpirationRelativeToNow));
+
+        public virtual Task<bool> KeyExpireAsync<T>(string key, TimeSpan? absoluteExpirationRelativeToNow, Action<CacheOptions>? action = null)
+            => KeyExpireAsync<T>(key, new CacheEntryOptions(absoluteExpirationRelativeToNow), action);
+
+        public abstract Task<bool> KeyExpireAsync(string key, CacheEntryOptions? options = null);
+
+        public abstract Task<bool> KeyExpireAsync<T>(string key, CacheEntryOptions? options = null, Action<CacheOptions>? action = null);
+
+        public abstract Task<long> KeyExpireAsync(
+            IEnumerable<string> keys,
+            CacheEntryOptions? options = null);
+
+        public abstract Task<long> KeyExpireAsync<T>(
+            IEnumerable<string> keys,
+            CacheEntryOptions? options = null,
+            Action<CacheOptions>? action = null);
+
+        public abstract Task<bool> OverlappingWork([NotNull] string resource, TimeSpan expiryTime, Func<Task> work);
+
+        public abstract void Publish(string channel, Action<PublishOptions> options);
+
+        public abstract Task PublishAsync(string channel, Action<PublishOptions> options);
+
+        public abstract void Refresh(params string[] keys);
+
+        public abstract Task RefreshAsync(params string[] keys);
+
+        public abstract void Remove(params string[] keys);
+
+        public override void Remove<T>(string key, Action<CacheOptions>? action = null)
+            => Remove<T>(new[] { key }, action);
+
+        public abstract Task RemoveAsync(params string[] keys);
+
+        public override Task RemoveAsync<T>(string key, Action<CacheOptions>? action = null)
+            => RemoveAsync<T>(new[] { key }, action);
+
+        public abstract Task<bool> SortedSetAddAsync(string redisKey, string redisValue, double score);
+
+        public abstract Task<long> SortedSetLengthAsync(string redisKey);
+
+        public abstract Task<long> SortedSetRemoveRangeByScoreAsync(string redisKey, double start, double stop);
+
+        public abstract Task<double?> SortedSetScoreAsync(string redisKey, string redisValue);
+
+        public abstract Task<bool> SortedSetRemoveAsync(string redisKey, string redisValue);
+
+        public abstract Task<List<T?>?> SortedSetRangeByScoreAsync<T>(string redisKey, double start = double.NegativeInfinity, double stop = double.PositiveInfinity, int order = 0);
+
+
+        public abstract void Subscribe<T>(string channel, Action<SubscribeOptions<T>> options);
+
+        public abstract Task SubscribeAsync<T>(string channel, Action<SubscribeOptions<T>> options);
+
+        public abstract void UnSubscribe<T>(string channel);
+
+        public abstract Task UnSubscribeAsync<T>(string channel);
+    }
+}

@@ -1,0 +1,19 @@
+﻿@using System.Reflection
+@using Glasssix.BuildingBlocks.Authentication.STS.Identity;
+ 
+
+@{
+    var runtimeVersion = typeof(Startup)
+        .GetTypeInfo()
+        .Assembly
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+}
+
+@runtimeVersion
+
+
+
+
+
+
+

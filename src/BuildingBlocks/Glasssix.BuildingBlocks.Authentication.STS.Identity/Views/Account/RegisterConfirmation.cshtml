@@ -1,0 +1,20 @@
+﻿@using Glasssix.BuildingBlocks.Authentication.STS.Identity.ViewModels.Account;
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model             RegisterConfirmationViewModel
+@{
+    ViewData["Title"] = Localizer["ConfirmEmailTitle"];
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    @Localizer["VerificationSent"]
+</p>
+
+
+
+
+
+
+

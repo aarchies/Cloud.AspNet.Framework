@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>.net6</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>1.0.0</Version>
+		<Description>应用层</Description>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <NoWarn>1701;1702;1591;NU1803</NoWarn>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Glasssix.BuildingBlocks.Data.Mapping" Version="1.0.0-prv" />
+		<PackageReference Include="Glasssix.Contrib.Repository" Version="1.0.0" />
+		
+		<!--<ProjectReference Include="..\..\BuildingBlocks\Glasssix.BuildingBlocks.Data.Validations\Glasssix.BuildingBlocks.Data.Validations.csproj" />
+		<ProjectReference Include="..\..\BuildingBlocks\Glasssix.BuildingBlocks.DependencyInjection\Glasssix.BuildingBlocks.DependencyInjection.csproj" />
+		<ProjectReference Include="..\Glasssix.Contrib.Domain.Shared\Glasssix.Contrib.Domain.Shared.csproj" />
+		<ProjectReference Include="..\Glasssix.Contrib.Domain\Glasssix.Contrib.Domain.csproj" />
+		<ProjectReference Include="..\Glasssix.Contrib.Repository\Glasssix.Contrib.Repository.csproj" />-->
+	</ItemGroup>
+
+</Project>

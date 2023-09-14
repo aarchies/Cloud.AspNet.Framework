@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>9.0</LangVersion>
+		<Version>1.0.1</Version>
+		<Description>分布式缓存 -Redis </Description>
+		<Title>Redis</Title>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<NoWarn>1701;1702;1591;NU1803</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="BloomFilter.Redis.NetCore" Version="2.0.0" />
+		<PackageReference Include="FireflySoft.RateLimit.AspNetCore" Version="3.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="RedLock.net" Version="2.3.2" />
+		<PackageReference Include="Glasssix.BuildingBlocks.Configuration" Version="1.0.0" />
+		<PackageReference Include="Glasssix.Contrib.Caching" Version="1.0.0-prv" />
+	</ItemGroup>
+</Project>

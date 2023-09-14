@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>9.0</LangVersion>
+		<Version>1.0.15</Version>
+		<Title>MessageCenter</Title>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Description>消息中心
+服务提供者 Emqx
+目前有两种使用方式：
+1.原始发布订阅
+2.通过特性注入自动发现</Description>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+ 
+
+  <ItemGroup>
+	  <PackageReference Include="Glasssix.Contrib.Message.Emqx" Version="1.0.8" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+	  
+  </ItemGroup>
+	
+</Project>

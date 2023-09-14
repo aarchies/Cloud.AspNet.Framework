@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>.net6</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\Glasssix.BuildingBlocks.Data.Uow\Glasssix.BuildingBlocks.Data.Uow.csproj" />
+    <ProjectReference Include="..\Glasssix.Contrib.Domain.Shared\Glasssix.Contrib.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Glasssix.Contrib.Domain\Glasssix.Contrib.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
